@@ -19,9 +19,9 @@ const (
 )
 
 var (
-	errWrongDurationData = errors.New("неправильные данные о продолжительности")
-	errWrongSteps        = errors.New("неправильные данные о шагах")
-	errNotEnoughData     = errors.New("недостаточно данных")
+	errWrongDurationData = errors.New("wrong data about avctivity")
+	errWrongSteps        = errors.New("wrong data about steps")
+	errNotEnoughData     = errors.New("not enough data")
 )
 
 func parsePackage(data string) (int, time.Duration, error) {

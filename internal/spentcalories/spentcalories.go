@@ -23,7 +23,7 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 	dataSlice := strings.Split(data, ",")
 
 	if len(dataSlice) != 3 {
-		return 0, "0", 0, errors.New("неправильно количество данных")
+		return 0, "0", 0, errors.New("not enought of data")
 	}
 
 	amountOfStep, err := strconv.Atoi(dataSlice[0])
@@ -38,7 +38,7 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 	}
 
 	if amountOfStep <= 0 || activityDuration <= 0 {
-		return 0, "0", 0, errors.New("некорректный ввод данных")
+		return 0, "0", 0, errors.New("amount of step of activity duration is less or equal zero")
 	}
 
 	return amountOfStep, activityType, activityDuration, nil
@@ -112,7 +112,7 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 func RunningSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
 	// TODO: done
 	if steps <= 0 || weight <= 0 || height <= 0 || duration <= 0 {
-		return 0, errors.New("неправильные данные")
+		return 0, errors.New("one of the parametres is less or equal zero")
 	}
 
 	meanSP := meanSpeed(steps, height, duration)
@@ -124,7 +124,7 @@ func RunningSpentCalories(steps int, weight, height float64, duration time.Durat
 func WalkingSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
 	// TODO: done
 	if steps <= 0 || weight <= 0 || height <= 0 || duration <= 0 {
-		return 0, errors.New("неправильные данные")
+		return 0, errors.New("one of the parametres is less or equal zero")
 	}
 
 	meanSP := meanSpeed(steps, height, duration)
